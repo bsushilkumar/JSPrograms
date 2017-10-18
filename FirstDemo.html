@@ -1,0 +1,57 @@
+<!--<html>
+<head>
+First Program<br>
+</head>
+<body>
+
+<script>
+
+window.onload=function(){getTime();}
+function getTime(){  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+// add a zero in front of numbers<10  
+m=checkTime(m);  
+s=checkTime(s);  
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+setTimeout(function(){getTime()},1000);  
+}  
+//setInterval("getTime()",1000);//another way  
+function checkTime(i){  
+if (i<10){  
+  i="0" + i;  
+ }  
+return i;  
+}  
+</script>
+<h2> Hellw World </h2><br>
+Current Time: <span id="txt"></span> 
+</body>
+
+
+</html>
+-->
+
+
+
+
+
+<html>
+<head>
+<script type="text/javascript">
+
+void func()
+javascript:void func()
+<!-- OR
+void(func())
+javascript:void(func())
+ -->
+</script>
+</head>
+<body>
+<p>Click the following, This won't react at all...</p>
+<a href="javascript:void(document.write(“Hello : 0”))">Click me!</a>
+</body>
+</html>

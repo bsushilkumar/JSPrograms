@@ -1,0 +1,9 @@
+<html>
+<head><h2>Strign Templets</h2></head>
+<body>
+
+<form name="f1">
+First name: <input type="text" name="FirstName"  placeholder="enter name...">
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- Flip Coin and print percentage of Heads and Tails
+I/P   -> The number of times to Flip Coin. Ensure it is positive integer.
+Logic -> Use Random Function to get value between 0 and 1. If < 0.5 then tails or heads
+O/P   -> Percentage of Head vs Tails          -->
+
+
+
+<html>
+<head><h4>Flip cloin </h4>
+<script type="text/javascript"> 
+ function call(){
+ var tails=0,heads=0;
+
+ var num=document.getElementById("name").value;  
+
+   var count=num.length;
+  
+
+for(var i=0;i<num;i++)
+{
+   if(Math.random()<0.5)
+   { 
+      tails++;
+   }
+else{
+      heads++;
+   }
+  
+
+}
+ alert("number of times to flip Tails is % = "+(tails*100)/num+"("+ tails +" times out of "+num+")");  // formula to calculate pacentage(?/100=part/whole)
+ 
+}
+</script>
+</head>
+<body>
+<form name="pro2">
+Enter number of times to Flip Coin <input type="text" id="name"name="Name" ><br>
+<input type="button" value="Submit" onclick="call()"/>
+</form>
+</body>
+
+</html>
+
