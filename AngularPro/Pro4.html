@@ -14,7 +14,9 @@ function myPower(){
      
 var num=parseInt(document.getElementById("number").value);
 
-  var pow=1;  
+ if(num<31)
+
+  { var pow=1;  
 
 
   for(var i=1;i<=num;i++)
@@ -34,7 +36,11 @@ var num=parseInt(document.getElementById("number").value);
    }
    
 
+}
+else{
 
+   alert("Number should be less than 31");
+  }
 }
 </script>
 </head>
