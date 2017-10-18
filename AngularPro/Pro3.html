@@ -1,42 +1,30 @@
-<!-- Leap Year
-I/P -> Year, ensure it is a 4 digit number.
-Logic -> Determine if it is a Leap Year.
-O/P -> Print the year is a Leap Year or not.     -->
+<!--**********************************************************************
 
+      Description : Leap Year program. 
+                    Take 4 digit number as an input and check weather it
+                    is leap year or not.
+
+
+
+      @auther : Sushilkumar Bobade	
+      @Date   : 17.10.2017        
+
+*************************************************************************-->
 
 <html>
 <head>
 <script type="text/javascript">
 
-  function properYear(){       //number validation is required
 
-/*  var regex=/^[0-9]+$/;
-    if (x.match(regex))
-    {
-        alert("Must input numbers");
-        return false;
-    }  
- */
-   var num= parseInt(document.getElementById('txt').value);
-   var regex=/^[0-9]+$/;
-   //console.log(typeof num);
-    if(num.length<4 )
-        {
-       alert("Enter 4 digit number to find leap year");
-    }
-else if(num.length > 4 && num.match(regex))
-      {
-         alert("character is not allow here");
-     }
-        
-   }
   
 function findYear(){
 
       var num=document.getElementById('txt').value;
       
-   
-        
+       if(num.length >3 && num.length<5 &&  num!="")
+{
+     
+     
 
         if(num % 4 == 0)
         {
@@ -54,15 +42,32 @@ function findYear(){
         else
             alert("Entered 4 digit number is not leap year");
 
- }
 
+
+
+
+}else{
+   if(num=="" || num.length>4 || num.length <4 )
+      {    if(num=="")
+            { 
+            alert("Enter Year");
+            }
+         else{ alert("Enter 4 digit number");}
+     
+     }
+    }
+  
+
+
+
+}
 
  </script>
 </head>
 
 <body>
 
-Enter Year to find leap year <input type="number" id="txt" onblur="properYear()" name="name"><br>
+Enter Year to find leap year <input type="number" id="txt" name="name"><br>
 
 <input type="button" value="Click" onclick="findYear()">
 

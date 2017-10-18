@@ -1,0 +1,12 @@
+<html>
+<head>
+<h2> 2D-Array </h2>
+<script type="text/javascript" src="/home/bridgelabz/javascript/AngularPro/js/2DArray.js"> </script>
+</head>
+
+<body >
+ 
+<input type="button" value="2D-Array Demo" onclick="loadFun()">
+
+</body>
+</html>

@@ -1,9 +1,15 @@
-<!-- Flip Coin and print percentage of Heads and Tails
-I/P   -> The number of times to Flip Coin. Ensure it is positive integer.
-Logic -> Use Random Function to get value between 0 and 1. If < 0.5 then tails or heads
-O/P   -> Percentage of Head vs Tails          -->
+<!--**********************************************************************
+
+      Description : Flip Coin and print percentage of Heads and Tails
+                    Take count as input and flip the coin(generatring
+                     randome number) and calculate percentage.
 
 
+
+      @auther : Sushilkumar Bobade	
+      @Date   : 17.10.2017        
+
+*************************************************************************-->
 
 <html>
 <head><h4>Flip cloin </h4>
@@ -18,7 +24,7 @@ O/P   -> Percentage of Head vs Tails          -->
 
 for(var i=0;i<num;i++)
 {
-   if(Math.random()<0.5)
+   if(Math.random()<0.5)  //function to generate randome number between 0 to 1;
    { 
       tails++;
    }
@@ -35,7 +41,7 @@ else{
 </head>
 <body>
 <form name="pro2">
-Enter number of times to Flip Coin <input type="text" id="name"name="Name" ><br>
+Enter number of times to Flip Coin <input type="text" id="name"><br>
 <input type="button" value="Submit" onclick="call()"/>
 </form>
 </body>

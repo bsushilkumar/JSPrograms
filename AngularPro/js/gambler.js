@@ -15,17 +15,20 @@ function gamFunCall(){
         var $Goal=parseInt(document.getElementById("goal").value);
         var $nTimes=parseInt(document.getElementById("ntime").value);
          
-     
-alert("hiii");
+   
 
-            var bets=0;
+
+            
+            var wins=0;
+            var loss=0;
+            var count=0;
              for(var i=0; i<$nTimes; i++) 
-		{ alert("inloop");
-		/*	var cash = $Stake;
+		{ 
+			var cash = $Stake;
 	            
 			while (cash > 0 && cash < $Goal)
 			{
-				bets++;
+				count++;
 	        
 				if (Math.random() < 0.5) 
 					cash++;     // win $1
@@ -33,9 +36,23 @@ alert("hiii");
 					cash--;     // lose $1
 			}
 	            if (cash == $Goal) 
-	            	wins++;         */
+                     {
+	            	wins++;         
+                 }else{ loss++; }
+
+
 
 }
+     
+       
+      
+        var perWin=(wins*100)/$nTimes;
+        var perLoss=(loss*100)/$nTimes;
+    
+  document.getElementById("win").innerHTML="You won "+wins+ " times "+" Out Of "+$nTimes+"<br>"+"Percentage of wins is "+perWin+"<br>"+"Percentage of wins is "+perLoss+"<br>"+"Total count of game "+count; 
+      
+
+ 
 
 }
 

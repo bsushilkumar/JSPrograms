@@ -1,0 +1,14 @@
+function loadFun(){
+
+
+
+ var row=parseInt(prompt("Total row ","Enter number here"));
+ var col=parseInt(prompt("Total Column ","Enter number here"));
+
+
+
+
+
+
+
+}

@@ -1,8 +1,14 @@
-<!--   User Input and Replace String Template “Hello <<UserName>>, How are you?” 
-I/P   -> Take User Name as Input. Ensure UserName has min 3 char
-Logic -> Replace <<UserName>> with the proper name
-O/P   -> Print the String with User Name         -->
+<!--**********************************************************************
 
+      Description : Take User Input and Replace String Template “Hello 
+                     <<UserName>>, How are you?” 
+
+
+
+      @auther : Sushilkumar Bobade	
+      @Date   : 17.10.2017        
+
+*************************************************************************-->
 
 
 
@@ -11,14 +17,12 @@ O/P   -> Print the String with User Name         -->
 <script type="text/javascript"> 
 function check()
 {
-
+   
+    // Use Form object to get value
    var name=document.f1.name.value;
-//window.alert("Testing "+name);
 
-  
- //var str=document.getElementById('name').value;
-  // window.alert("Testing"+str);
 
+   
   if(name.length<3)
      { 
         alert("Name should be more then 3 character");
