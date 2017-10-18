@@ -37,7 +37,7 @@ var num=parseInt(document.getElementById("number").value);
 <body>
 
 <form >
-Enter Number <input type="text" id="number"  placeholder="Only Number"><br>
+Enter Number <input type="number" id="number"  placeholder="Only Number"><br>
 <input type="submit" value="Submit" onclick="myPower()"/> 
 
 </form>

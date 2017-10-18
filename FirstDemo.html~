@@ -38,20 +38,31 @@ Current Time: <span id="txt"></span>
 
 
 
+<!DOCTYPE html>
 <html>
-<head>
-<script type="text/javascript">
-
-void func()
-javascript:void func()
-<!-- OR
-void(func())
-javascript:void(func())
- -->
-</script>
-</head>
 <body>
-<p>Click the following, This won't react at all...</p>
-<a href="javascript:void(document.write(“Hello : 0”))">Click me!</a>
+
+<p>Click the button to display the formatted number.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+
+
+<script>
+function myFunction() {
+    var num = 15;
+    document.write(typeof num);
+    var n = num.toString();
+    document.write(typeof n);
+   // document.getElementById("demo").innerHTML = n;
+   
+}
+
+
+
+
+
+</script>
+
 </body>
 </html>
