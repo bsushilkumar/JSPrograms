@@ -1,0 +1,27 @@
+/********************************************************************************
+   
+    Description : Quadratic Equation.
+
+
+
+   @auther : Sushilkumar Bobade	
+   @Date   : 19.10.2017
+
+**********************************************************************************/
+
+
+function qFuntion(){
+
+                 var a=parseInt(prompt("Enter value for 'a' ","Enter only number"));
+                 var b=parseInt(prompt("Enter value for 'b' ","Enter only number"));
+                 var c=parseInt(prompt("Enter value for 'c' ","Enter only number"));
+
+
+             var delta=b*b - 4*a*c;
+             var x1 = (-b + Math.sqrt(delta))/(2*a);
+             var x2 = (-b - Math.sqrt(delta))/(2*a);
+            
+            document.getElementById("equ").innerHTML="The roots of the Quadratic Equation \"2x2 + 6x + 4 = 0\" are "+x1+" and "+x2;
+ 
+
+}

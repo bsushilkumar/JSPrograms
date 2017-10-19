@@ -1,0 +1,14 @@
+<html>
+<head>
+<h2> Stop Watch</h2>
+<script type="text/javascript" src="/home/bridgelabz/javascript/AngularPro/js/stopWatch.js"> </script>
+</head>
+
+<body >
+ 
+<input type="button" value="Start" onclick="loadFun()">
+
+
+
+</body>
+</html>

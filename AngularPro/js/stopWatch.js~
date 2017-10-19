@@ -1,0 +1,15 @@
+/********************************************************************************
+   
+    Description : Stop Watch
+
+
+
+   @auther : Sushilkumar Bobade	
+   @Date   : 19.10.2017
+
+**********************************************************************************/
+function startWatch(){
+
+  var d=new Date();
+  d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+}

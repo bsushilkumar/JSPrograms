@@ -1,3 +1,16 @@
+/********************************************************************************
+   
+    Description : 2DArray program
+
+
+
+   @auther : Sushilkumar Bobade	
+   @Date   : 19.10.2017
+
+**********************************************************************************/
+
+
+
 function loadFun(){
 
 
@@ -8,14 +21,33 @@ function loadFun(){
     var arr=new Array(row);
   for(var i=0;i<row;i++)
    {
-        for(var j=0;j<col;j++)
-          {
-                   
-       
-          }
-   
+     
+         arr[i]=new Array(col);
+     
   
     }
+
+
+    for(var i=0;i<row;i++){
+      for(var j=0;j<col;j++)
+          {     
+                arr[i][j]=prompt("Enter value");                 
+                
+          }
+   
+  }
+    
+    document.write(row+" * "+col+" Dimensional Array"+"<br><br>");
+  for(var i=0;i<row;i++){
+      for(var j=0;j<col;j++)
+          {     
+                document.write(arr[i][j]+" ");
+          }
+           document.write("<br><br>");
+   
+  }
+ 
+   
 
 
 

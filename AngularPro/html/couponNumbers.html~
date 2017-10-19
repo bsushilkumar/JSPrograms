@@ -1,0 +1,14 @@
+<html>
+<head>
+<h2>  Distinct Coupon Numbers Generation </h2>
+<script type="text/javascript" src="/home/bridgelabz/javascript/AngularPro/js/couponNumbers.js">
+</script>
+
+</head>
+<body> 
+Enter How many coupon do you want to generate <input type="number" id="number"> <br>
+<input type="button" value="Click for Coupons" onclick="couponFun()"/>
+
+<div id="result"> </div>
+</body>
+</html>
