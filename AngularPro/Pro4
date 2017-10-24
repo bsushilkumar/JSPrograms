@@ -1,0 +1,45 @@
+<!--Power of 2 
+Desc -> This program takes a command-line argument N and prints a table of the powers of 2 that are less than or equal to 2^N.
+I/P -> The Power Value N. Only works if 0 <= N < 31 since 2^31 overflows an int
+Logic -> repeat until i equals N.
+O/P -> Print the year is a Leap Year or not.
+
+-->
+
+
+<html>
+<head><h2>Power of 2</h2>
+<script type="text/javascript"> 
+function myPower(){
+    
+ 
+var num=parseInt(document.getElementById("number").value);
+
+
+
+  var pow=1;  
+  alert(typeof pow);
+  for(var i=1;i<=num;i++)
+   {   
+     for(var j=0;j<i;j++)
+       {
+ alert("befor loop///////");
+      document.write("Power of 2^"+i   +" = " );
+       document.write("<br>")
+      
+       }
+   }
+
+
+}
+</script>
+</head>
+<body>
+
+<form >
+Enter Number <input type="number" id="number"  placeholder="Only Number"><br>
+<input type="submit" value="Submit" onclick="myPower()"/> 
+
+</form>
+</body>
+</html>

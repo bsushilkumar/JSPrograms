@@ -1,0 +1,69 @@
+<!--<html>
+<head>
+First Program<br>
+</head>
+<body>
+
+<script>
+
+window.onload=function(){getTime();}
+function getTime(){  
+var today=new Date();  
+var h=today.getHours();  
+var m=today.getMinutes();  
+var s=today.getSeconds();  
+// add a zero in front of numbers<10  
+m=checkTime(m);  
+s=checkTime(s);  
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;  
+setTimeout(function(){getTime()},1000);  
+}  
+//setInterval("getTime()",1000);//another way  
+function checkTime(i){  
+if (i<10){  
+  i="0" + i;  
+ }  
+return i;  
+}  
+</script>
+<h2> Hellw World </h2><br>
+Current Time: <span id="txt"></span> 
+</body>
+
+
+</html>
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display the formatted number.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+
+
+<script>
+function myFunction() {
+    var num = 15;
+    document.write(typeof num);
+    var n = num.toString();
+    document.write(typeof n+"<br>");
+     document.write(typeof num);
+   // document.getElementById("demo").innerHTML = n;
+   
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

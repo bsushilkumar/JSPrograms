@@ -1,0 +1,46 @@
+<!--**********************************************************************
+
+      Description : Take User Input and Replace String Template “Hello 
+                     <<UserName>>, How are you?” 
+
+
+
+      @auther : Sushilkumar Bobade	
+      @Date   : 17.10.2017        
+
+*************************************************************************-->
+
+
+
+<html>
+<head><h2>Strign Templets</h2>
+<script type="text/javascript"> 
+function check()
+{
+   
+    // Use Form object to get value
+   var name=document.f1.name.value;
+
+
+   
+  if(name.length<3)
+     { 
+        alert("Name should be more then 3 character");
+    }
+else{
+     var data="Hello"+name+",How are you?"
+    alert("Hello "+name+",How are you ?");
+   
+    }
+}
+</script>
+</head>
+<body>
+
+<form name="f1">
+First name: <input type="text" name="name"  placeholder="enter name..."><br>
+<input type="submit" value="Submit" onclick="check()"/> 
+<div id='txt'></div>
+</form>
+</body>
+</html>

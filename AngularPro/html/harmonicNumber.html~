@@ -1,0 +1,14 @@
+<html>
+
+<head>
+<h2>Harmonic Number</h2>
+
+<script type="text/javascript" src="/home/bridgelabz/javascript/AngularPro/js/harmonicNumber.js"></script>
+
+</head>
+
+<body>
+<h3>Enter N<sup>th</sup> value to find Harmonic Number</h3> <input type="number"> <input type="button" value="Click" onclick="callFun()">
+
+</body>
+</html>
