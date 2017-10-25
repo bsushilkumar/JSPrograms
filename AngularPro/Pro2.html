@@ -12,19 +12,24 @@
 *************************************************************************-->
 
 <html>
-<head><h4>Flip cloin </h4>
+<head><h4>Flip coin </h4>
 <script type="text/javascript"> 
  function call(){
  var tails=0,heads=0;
 
- var num=document.getElementById("name").value;  
+ var flip_time_for_coin=document.getElementById("name").value;  
 
-   var count=num.length;
   
-
-for(var i=0;i<num;i++)
+  
+/**
+ *  @Function to toss coin as per input 
+ */
+for(var i=0;i<flip_time_for_coin;i++)
 {
-   if(Math.random()<0.5)  //function to generate randome number between 0 to 1;
+   
+/**
+ *  @function to generate randome number between 0 to 1;
+ */ if(Math.random()<0.5)  
    { 
       tails++;
    }
@@ -34,7 +39,11 @@ else{
   
 
 }
- alert("number of times to flip Tails is % = "+(tails*100)/num+"("+ tails +" times out of "+num+")");  // formula to calculate pacentage(?/100=part/whole)
+
+/**
+ *  formula to calculate pacentage(?/100=part/whole)
+ */
+ alert("number of times to flip Tails is % = "+(tails*100)/flip_time_for_coin+"("+ tails +" times out of "+flip_time_for_coin+")");  
  
 }
 </script>

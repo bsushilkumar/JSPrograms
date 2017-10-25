@@ -9,33 +9,41 @@
 
 **********************************************************************************/
 
-function couponFun(){
+function couponGeneration(){
 
-  var num=parseInt(document.getElementById("number").value);
-   var arr=new Array();
-   var rep=0;
-   var count=0;
-   var current=0;
-    while(arr.length < num)
+  var input_to_generat_coupon=parseInt(document.getElementById("number").value);
+   var array_hold_uniqe_coupons=new Array();
+   var repeated_coupon_count=0;
+   var coupon_generated_count=0;
+   var array_index=0;
+    while(array_hold_uniqe_coupons.length < input_to_generat_coupon)
     {  
      
 
-       count++;
+       coupon_generated_count++;
+
+/**
+ *   @generating randome number using Math.random() function
+ */
          var cnumber=Math.random()*100;
           
-     
-          if(arr[0]==null)
+ /**
+ *   @Checking generated coupon is New or repeated
+ *   @Collecting new coupons in array.
+ */    
+
+          if(array_hold_uniqe_coupons[0]==null)
              { 
 
-                 arr[0]=cnumber;
-                 current++;
+                 array_hold_uniqe_coupons[0]=cnumber;
+                 array_index++;
                }    
  
                else
                {  var flag=false;
-                      for(i=0;i<arr.length;i++)
+                      for(i=0;i<array_hold_uniqe_coupons.length;i++)
                         {    
-                           if(cnumber==arr[i])
+                           if(cnumber==array_hold_uniqe_coupons[i])
                                    {flag=true;
                                       
                                       break;
@@ -46,10 +54,10 @@ function couponFun(){
                           }
                         if(flag==false)
                          {
-                             arr[current]=cnumber;
-                                current++; 
+                             array_hold_uniqe_coupons[current]=cnumber;
+                                array_index++; 
 
-                          }else{rep++;}
+                          }else{repeated_coupon_count++;}
  
                }
       
@@ -57,7 +65,7 @@ function couponFun(){
 }
 
 
-document.getElementById("result").innerHTML="Total Randome number needed are "+count+"<br>"+"Repeted generated numbers ="+rep;
+document.getElementById("result").innerHTML="Total Randome number needed are "+coupon_generated_count+"<br>"+"Repeted generated numbers ="+repeated_coupon_count;
 
 
 

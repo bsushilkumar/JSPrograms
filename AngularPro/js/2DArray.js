@@ -11,37 +11,47 @@
 
 
 
-function loadFun(){
+function Two_Dimensional_Array(){
 
 
 
- var row=parseInt(prompt("Total row ","Enter number here"));
- var col=parseInt(prompt("Total Column ","Enter number here"));
+ var row_of_array=parseInt(prompt("Total row ","Enter number here"));
+ var col_of_array=parseInt(prompt("Total Column ","Enter number here"));
    
-    var arr=new Array(row);
-  for(var i=0;i<row;i++)
+/**
+ *    @Creating 2-Dimensional array
+ */   
+    var array=new Array(row_of_array);
+  for(var i=0;i<row_of_array;i++)
    {
      
-         arr[i]=new Array(col);
+         array[i]=new Array(col_of_array);
      
   
     }
 
+/**
+ *    @Taking input in array
+ */ 
 
-    for(var i=0;i<row;i++){
-      for(var j=0;j<col;j++)
+    for(var i=0;i<row_of_array;i++){
+      for(var j=0;j<col_of_array;j++)
           {     
-                arr[i][j]=prompt("Enter value");                 
+                array[i][j]=prompt("Enter value");                 
                 
           }
    
   }
     
-    document.write(row+" * "+col+" Dimensional Array"+"<br><br>");
-  for(var i=0;i<row;i++){
-      for(var j=0;j<col;j++)
+    document.write(row_of_array+" * "+col_of_array+" Dimensional Array"+"<br><br>");
+ 
+/**
+ *    @Displaying array
+ */ 
+ for(var i=0;i<row_of_array;i++){
+      for(var j=0;j<col_of_array;j++)
           {     
-                document.write(arr[i][j]+" ");
+                document.write(array[i][j]+" ");
           }
            document.write("<br><br>");
    

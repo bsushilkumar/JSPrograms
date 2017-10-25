@@ -16,22 +16,25 @@
 <script type="text/javascript">
 
 
-  
-function findYear(){
+/**
+ *   @Function to find leap year.
+ */
+function find_leap_Year(){
 
-      var num=document.getElementById('txt').value;
+      var year_as_input=document.getElementById('txt').value;
       
-       if(num.length >3 && num.length<5 &&  num!="")
-{
-     
-     
+       if(year_as_input.length >3 && year_as_input.length<5 &&  num!="")
+      {
+       
 
-        if(num % 4 == 0)
+        if(year_as_input % 4 == 0)
         {
-            if( num % 100 == 0)
+            if( year_as_input % 100 == 0)
             {
-                // year is divisible by 400, hence the year is a leap year
-                if ( num % 400 == 0)
+ /**
+ *   @Year is divisible by 400, hence the year is a leap year.
+ */ 
+                if ( year_as_input % 400 == 0)
                    alert("Entered 4 digit number is leap year");
                 else
                     alert("Entered 4 digit number is not leap year");
@@ -47,8 +50,8 @@ function findYear(){
 
 
 }else{
-   if(num=="" || num.length>4 || num.length <4 )
-      {    if(num=="")
+   if(year_as_input=="" || year_as_input.length>4 || year_as_input.length <4 )
+      {    if(year_as_input=="")
             { 
             alert("Enter Year");
             }

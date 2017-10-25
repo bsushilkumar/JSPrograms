@@ -10,16 +10,16 @@ O/P -> Print the year is a Leap Year or not.
 <html>
 <head><h2>Power of 2</h2>
 <script type="text/javascript"> 
-function myPower(){
+function findPowerOfTow(){
     
  
-var num=parseInt(document.getElementById("number").value);
+var number_as_input=parseInt(document.getElementById("number").value);
 
 
 
   var pow=1;  
   alert(typeof pow);
-  for(var i=1;i<=num;i++)
+  for(var i=1;i<=number_as_input;i++)
    {   
      for(var j=0;j<i;j++)
        {
