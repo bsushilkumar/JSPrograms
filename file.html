@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+ <!--<script type="text/javascript" src="/home/bridgelabz/JSPrograms/AlgorithmPro/js/readFileBinarySearch.js">
+
+ </script> -->
+  </head>
+  <body >
+    <input type="file" id="file-input" />
+<h3>Contents of the file:</h3>
+<pre id="file-content"></pre>
+<script type="text/javascript">
+function readSingleFile(e) {
+var file = e.target.files[0];
+if (!file) {
+  return;
+}
+var reader = new FileReader();
+reader.onload = function(e) {
+  var contents = e.target.result;
+  var seaching_result=searchingFromFile(contents);
+  displayContents(contents);
+};
+reader.readAsText(file);
+}
+
+function searchingFromFile(contents){
+  contents= contents.split(",");
+    var key_to_search = parseInt(prompt("Enter String to search from file"));
+
+    var first = 0;
+    var last = array_string.length - 1;
+    console.log(array_string.length);
+    var middle = Math.round((first + last) / 2);
+
+    while (first <= last) {
+      if (array_string[middle] < key_to_search)
+        first = middle + 1;
+      else if (array_string[middle] == key_to_search) {
+        var index = middle + 1
+        document.getElementById("file-content").innerHTML = key_to_search + " found at location " + index;
+        break;
+      } else
+        last = middle - 1;
+
+      middle = Math.round((first + last) / 2);
+    }
+    if (first > last)
+
+      document.getElementById("file-content").innerHTML = key_to_search + " not found in the File ";
+
+
+
+
+}
+/*
+function displayContents(contents) {
+var element = document.getElementById('file-content');
+element.textContent = contents;
+}
+
+document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+*/
+</script>
+  </body>
+</html>
