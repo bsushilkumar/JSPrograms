@@ -24,8 +24,9 @@ reader.onload = function(e) {
   displayContents(contents);
 };
 reader.readAsText(file);
-}
 
+}
+/*
 function searchingFromFile(contents){
   contents= contents.split(",");
     var key_to_search = parseInt(prompt("Enter String to search from file"));
@@ -54,15 +55,16 @@ function searchingFromFile(contents){
 
 
 
-}
-/*
+}*/
+
 function displayContents(contents) {
 var element = document.getElementById('file-content');
 element.textContent = contents;
+document.getElementById('file-input').addEventListener('change', readSingleFile, false);
 }
 
-document.getElementById('file-input').addEventListener('change', readSingleFile, false);
-*/
+
+
 </script>
   </body>
 </html>
