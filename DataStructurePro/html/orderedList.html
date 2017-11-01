@@ -224,16 +224,22 @@
     while (currentNode.next) {
 
         if (parseInt(currentNode.data) > parseInt(value)) {
+
           currentNode=previous;
             var next=currentNode.next;
               currentNode.next=node;
             node.next=next;
             alert("Number not present in list. So it add to list.");
             break;
+
+
         }
         var previous=currentNode;
       currentNode = currentNode.next;
     }
+     if (currentNode.next==null) {
+         currentNode.next=node;
+      }
 
 
 
