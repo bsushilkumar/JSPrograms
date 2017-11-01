@@ -1,0 +1,268 @@
+<!-----------------------------------------------------------------------------------------------------------------------------
+
+   @Description : Ordered List
+                  Desc  -> Read .a List of Numbers from a file and arrange it ascending Order in a Linked List. Take user
+                           input for a number, if found then pop the number out of the list else insert the number in
+                           appropriate position
+                  I/P   -> Read from file the list of Numbers and take user input for a new number
+                  Logic -> Create a Ordered Linked List having Numbers in ascending order.
+                  O/P   -> The List of Numbers to a File.
+
+
+
+
+   @auther      : Sushilkumar Bobade
+   @Date        : 1.11.2017
+
+---------------------------------------------------------------------------------------------------------------------------->
+<input type="file" id="myFile">
+
+<div id="output"></div>
+<h4 id="beforupdate"></h1><br>
+  <h4 id="afterupdate"></h4>
+<script>
+  /**
+   *   @ Reading file and store data in array.
+   *   @ calling creatingLinkList() function to crear Link List for data which has withdrawed  from file.
+   */
+  var input = document.getElementById("myFile");
+  var output = document.getElementById("output");
+  var print;
+  input.addEventListener("change", function() {
+    if (this.files && this.files[0]) {
+      var myFile = this.files[0];
+      var reader = new FileReader();
+
+      reader.addEventListener('load', function(e) {
+        var dfile = e.target.result;
+        /**
+         *   @ calling functin to creat link list.
+         */
+        creatingLinkList(dfile);
+
+        /**
+         *   @ Taking one number from user to search.
+         */
+        var search_data = prompt("Enter word to search from file");
+        dfile = dfile.split(",").sort();
+        /**
+         *   @ Calling Search function to searh word is present in file or not
+         *   @ This function will return value as indext number at what node should delete from link list.
+         */
+        var holding_value = search(search_data, dfile);
+        /**
+         *   @ This condition will check wether word present in link list or not .
+         *   @ if yes then call  SinglyList.prototype.pop() function to remove from link list.
+         *   @ if no then call SinglyList.prototype.add() function to add into link list.
+         */
+        if (holding_value >= 0) {
+          SinglyList.prototype.pop(holding_value);
+          alert("Number fount in  file. pop it from the list");
+        } else {
+
+          SinglyList.prototype.insertAtLocation(search_data);
+          alert("updated link list are...");
+          SinglyList.prototype.printList();
+         document.getElementById("afterupdate").innerHTML="Data after performimg operation are = "+print;
+        }
+
+          });
+
+      reader.readAsBinaryString(myFile);
+    }
+  });
+
+
+
+  /**
+   *   @ Link List function to create link list.
+   */
+  function creatingLinkList(data) {
+    var list_data = data.split(",").sort();
+
+    for (var i = 0; i < list_data.length; i++) {
+
+
+      SinglyList.prototype.add(list_data[i]);
+
+    }
+    alert("read data from the file and stored in link list are...");
+     SinglyList.prototype.printList();
+    document.getElementById("beforupdate").innerHTML= "Data present in file = "+print;
+
+
+  }
+
+  /**
+   *   @ Search function to search word from list.
+   */
+  function search(search_key, list_data) {
+
+    var flag = false;
+    for (i = 0; i < list_data.length; i++) {
+      if (search_key == list_data[i]) {
+        flag = true;
+
+        break;
+      } else {
+        flag = false;
+      }
+
+
+    }
+    if (flag == true) {
+      return i;
+    } else {
+      return -1
+    }
+  }
+
+
+  function Node(data) {
+    this.data = data;
+    this.next = null;
+  }
+
+
+  function SinglyList() {
+    this._length = 0;
+    this.head = null;
+  }
+
+  /**
+   *   @ SinglyList.prototype.add() this functin will create new node and into link list
+   */
+  SinglyList.prototype.add = function(value) {
+    var node = new Node(value),
+      currentNode = this.head;
+
+    // 1st use-case: an empty list
+    if (!currentNode) {
+      this.head = node;
+      this._length++;
+
+      return node;
+    }
+
+    // 2nd use-case: a non-empty list
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = node;
+
+    this._length++;
+
+
+
+    return node;
+  };
+
+  /**
+   *   @ SinglyList.prototype.pop() this functin will remove node from link list
+   */
+  SinglyList.prototype.pop = function(position) {
+    var currentNode = this.head,
+      length = this._length,
+      count = 0,
+      message = {
+        failure: 'Failure: non-existent node in this list.'
+      },
+      beforeNodeToDelete = null,
+      nodeToDelete = null,
+      deletedNode = null;
+
+    // 1st use-case: an invalid position
+    if (position < 0 || position > length) {
+      throw new Error(message.failure);
+    }
+
+    // 2nd use-case: the first node is removed
+    if (position === 1) {
+      this.head = currentNode.next;
+      deletedNode = currentNode;
+      currentNode = null;
+      this._length--;
+
+      return deletedNode;
+    }
+
+    // 3rd use-case: any other node is removed
+    while (count < position) {
+      beforeNodeToDelete = currentNode;
+      nodeToDelete = currentNode.next;
+      count++;
+    }
+
+    beforeNodeToDelete.next = nodeToDelete.next;
+    deletedNode = nodeToDelete;
+    nodeToDelete = null;
+    this._length--;
+
+    return deletedNode;
+  };
+
+
+
+  /**
+   *   @ This function will insert number in link list if it is not presernt.
+   */
+  SinglyList.prototype.insertAtLocation = function(value) {
+    var node = new Node(value),
+
+      currentNode = this.head;
+
+    // 1st use-case: an empty list
+    if (!currentNode) {
+      this.head = node;
+      this._length++;
+
+      return node;
+    }
+
+    // 2nd use-case: a non-empty list
+    while (currentNode.next) {
+
+        if (parseInt(currentNode.data) > parseInt(value)) {
+          currentNode=previous;
+            var next=currentNode.next;
+              currentNode.next=node;
+            node.next=next;
+            alert("Number not present in list. So it add to list.");
+            break;
+        }
+        var previous=currentNode;
+      currentNode = currentNode.next;
+    }
+
+
+
+    this._length++;
+
+    return node;
+  };
+
+  /**
+   *   @ This method will call to print link list data.
+   */
+  SinglyList.prototype.printList = function(position) {
+       print="";
+      currentNode = this.head;
+
+    // 1st use-case: an empty list
+    if (!currentNode) {
+       alert("List is empty. Nothing to display");
+      return node;
+    }
+
+    // 2nd use-case: a non-empty list
+    while (currentNode.next) {
+      print +=currentNode.data +" ";
+      currentNode = currentNode.next;
+    }
+
+
+    return print;
+  };
+
+</script>

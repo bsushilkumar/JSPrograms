@@ -1,34 +1,222 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>File Location <br> /home/bridgelabz/JSPrograms/AlgorithmPro/js/UnorderList.txt</title>
+<!---------------------------------------------------------------------------------------------------------------------
 
-  </head>
-  <body>
-    <script type="text/javascript" src="">
-    <input type="file" id="myFile">
+   @Description : UnOrdered List
+                  Desc  -> Read the Text from a file, split it into words and arrange it as Linked List. Take a user
+                           input to search a Word in the List. If the Word is not found then add it to the list, and
+                           if it found then remove the word from the List. In the end save the list into a file
+                  I/P   -> Read from file the list of Words and take user input to search a Text
+                  Logic -> Create a Unordered Linked List. The Basic Building Block is the Node Object. Each node
+                           object must hold at least two pieces of information. One ref to the data field and  second
+                           the ref to the next node object.
+                  O/P   -> The List of Words to a File.
 
-    <div id="output"></div>
-    <script>
-    var input = document.getElementById("myFile");
-    var output = document.getElementById("output");
 
-    input.addEventListener("change", function () {
-      if (this.files && this.files[0]) {
-        var myFile = this.files[0];
-        var reader = new FileReader();
 
-        reader.addEventListener('load', function (e) {
-          var dfile=e.target.result;
-          binarySearch(dfile);
-        //  output.textContent = e.target.result;
-        });
+   @auther      : Sushilkumar Bobade
+   @Date        : 31.10.2017
 
-        reader.readAsBinaryString(myFile);
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------  >
+<input type="file" id="myFile">
+
+<div id="output"></div>
+<script>
+/**
+ *   @ Reading file and store data in array.
+ *   @ calling creatingLinkList() function to crear Link List for data which has withdrawed  from file.
+ */
+  var input = document.getElementById("myFile");
+  var output = document.getElementById("output");
+
+  input.addEventListener("change", function() {
+    if (this.files && this.files[0]) {
+      var myFile = this.files[0];
+      var reader = new FileReader();
+
+      reader.addEventListener('load', function(e) {
+        var dfile = e.target.result;
+/**
+ *   @ calling functin to creat link list.
+ */
+      creatingLinkList(dfile);
+
+/**
+ *   @ Taking one number from user to search.
+ */
+      var search_data=prompt("Enter word to search from file");
+      dfile=dfile.split(" ");
+/**
+ *   @ Calling Search function to searh word is present in file or not
+ *   @ This function will return value as indext number at what node should delete from link list.
+ */
+        var holding_value = search(search_data,dfile);
+/**
+ *   @ This condition will check wether word present in link list or not .
+ *   @ if yes then call  SinglyList.prototype.remove() function to remove from link list.
+ *   @ if no then call SinglyList.prototype.add() function to add into link list.
+ */
+            if (holding_value >=0) {
+                SinglyList.prototype.remove(holding_value);
+                alert("word fount in  file. Reamove it from the list");
+            }else {
+              SinglyList.prototype.add(search_data);
+              alert("word not fount in  file. add it in file the list");
+            }
+
+            SinglyList.prototype.print();
+      });
+
+      reader.readAsBinaryString(myFile);
+    }
+  });
+
+
+
+/**
+ *   @ Link List function to create link list.
+ */
+  function creatingLinkList(data){
+      var list_data = data.split(" ");
+
+      for (var i = 0; i<list_data.length; i++) {
+
+
+              SinglyList.prototype.add(list_data[i]);
+
       }
-    });
 
-    </script>
-  </body>
-</html>
+
+}
+
+/**
+ *   @ Search function to search word from list.
+ */
+function search(search_key,list_data){
+
+        var flag=false;
+                       for(i=0;i<list_data.length;i++)
+                         {
+                            if(search_key==list_data[i])
+                                    {flag=true;
+
+                                       break;
+                                      }
+                            else{ flag=false;}
+
+
+                           }
+                         if(flag==true)
+                          {
+                              return i;
+                           }
+                           else
+                           {
+                               return -1
+                           }
+}
+
+
+  function Node(data) {
+      this.data = data;
+      this.next = null;
+  }
+
+
+  function SinglyList() {
+    this._length = 0;
+    this.head = null;
+}
+
+/**
+ *   @ SinglyList.prototype.add() this functin will create new node and into link list
+ */
+SinglyList.prototype.add = function(value) {
+    var node = new Node(value),
+        currentNode = this.head;
+
+    // 1st use-case: an empty list
+    if (!currentNode) {
+        this.head = node;
+        this._length++;
+
+        return node;
+    }
+
+    // 2nd use-case: a non-empty list
+    while (currentNode.next) {
+        currentNode = currentNode.next;
+    }
+
+    currentNode.next = node;
+
+    this._length++;
+
+    return node;
+};
+
+/**
+ *   @ SinglyList.prototype.remove() this functin will remove node from link list
+ */
+SinglyList.prototype.remove = function(position) {
+    var currentNode = this.head,
+        length = this._length,
+        count = 0,
+        message = {failure: 'Failure: non-existent node in this list.'},
+        beforeNodeToDelete = null,
+        nodeToDelete = null,
+        deletedNode = null;
+
+    // 1st use-case: an invalid position
+    if (position < 0 || position > length) {
+        throw new Error(message.failure);
+    }
+
+    // 2nd use-case: the first node is removed
+    if (position === 1) {
+        this.head = currentNode.next;
+        deletedNode = currentNode;
+        currentNode = null;
+        this._length--;
+
+        return deletedNode;
+    }
+
+    // 3rd use-case: any other node is removed
+    while (count < position) {
+        beforeNodeToDelete = currentNode;
+        nodeToDelete = currentNode.next;
+        count++;
+    }
+
+    beforeNodeToDelete.next = nodeToDelete.next;
+    deletedNode = nodeToDelete;
+    nodeToDelete = null;
+    this._length--;
+
+    return deletedNode;
+};
+
+/*SinglyList.prototype.print = function() {
+         var storingInFile="";
+        currentNode = this.head;
+
+
+
+    // 2nd use-case: a non-empty list
+    while (currentNode.next !=null) {
+      storingInFile +=currentNode.data;
+        currentNode = currentNode.next;
+    }
+    var fh = fopen("/home/bridgelabz/JSPrograms/checking.txt", 3); // Open the file for writing
+
+
+      fwrite(fh, storingInFile); // Write the string to a file
+      fclose(fh); // Close the file
+
+};
+*/
+</script>
