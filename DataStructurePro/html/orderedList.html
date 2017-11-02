@@ -121,6 +121,7 @@
   function Node(data) {
     this.data = data;
     this.next = null;
+
   }
 
 
@@ -133,7 +134,7 @@
    *   @ SinglyList.prototype.add() this functin will create new node and into link list
    */
   SinglyList.prototype.add = function(value) {
-    var node = new Node(value),
+    var node = new Node(value);
       currentNode = this.head;
 
     // 1st use-case: an empty list
