@@ -5,7 +5,7 @@
                   and also find anagram and palindrom numbers.
 
 
-    Status  : Pending.
+    
 
     @auther : Sushilkumar Bobade
     @Date   : 1.11.2017

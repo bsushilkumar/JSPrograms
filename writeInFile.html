@@ -1,0 +1,20 @@
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>fs=Server CreateObject ("Scripting FileSystemObject")</title>
+    <script type="text/javascript">
+    function myFunction()
+    {
+        var fs = new ActiveXObject("Scripting.FileSystemObject");
+        var f = fs.OpenTextFile("/home/bridgelabz/JSPrograms/write.txt", 8, true);
+        f.WriteLine("This text will be added to the end of file");
+        f.Close();
+    }
+    </script>
+    </head>
+
+    <body>
+    <input name="Text1" type="text" size="55" onblur="myFunction()" />
+
+    </body>
+
+    </html>
