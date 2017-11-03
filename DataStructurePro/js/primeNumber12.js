@@ -1,7 +1,10 @@
 /********************************************************************************************
 
-    Description : Take a range of 0 - 1000 Numbers and find the Prime numbers in that range
-                  and also find anagram and palindrom numbers.
+    Description : Extend the Prime Number Program and store only the numbers in that range
+                  that are Anagrams. For e.g. 17 and 71 are both Prime and Anagrams in the
+                  0 to 1000 range. Further store in a 2D Array the numbers that are Anagram
+                  and numbers that are not Anagram.
+
 
 
 
@@ -10,8 +13,11 @@
     @Date   : 25.10.2017
 
 *********************************************************************************************/
-var result_storing_variable="";
- var palindromNumber="";
+result_storing_variable="";
+ palindromNumber="";
+ reverseNonprimeNumber="";
+ reversedPrimeNumber="";
+ primeNumber="";
 function prime_number_calculation_function(){
 
 
@@ -56,7 +62,7 @@ function anagramCheckingFunction(data){
   }
 
 document.write("<br><br>"+"Anagram Numbers are --><br>"+palindromNumber);
-
+findingNumberPrimeAndAnagramBoth(palindromNumber);
 }
 
 
@@ -102,5 +108,59 @@ function palindrom(data){
      }
 
 return;
+
+}
+
+function findingNumberPrimeAndAnagramBoth(array){
+
+var variableToHoldArray=array.split(" ");
+var temporaryVariable;
+for (var i = 1; i < variableToHoldArray.length; i++) {
+
+  var reversed = 0;
+  temporaryVariable=variableToHoldArray[i];
+ while (temporaryVariable != 0) {
+  reversed *= 10;
+  reversed += temporaryVariable % 10;
+  temporaryVariable -= temporaryVariable % 10;
+  temporaryVariable /= 10;
+ }
+
+  var resultFlag=checkPrimeOrNot(reversed);
+  if (resultFlag==0 &&reversed<1000) {
+
+       reversedPrimeNumber +=" "+reversed;
+       primeNumber +=variableToHoldArray[i]; //last time modification.
+  }
+  if (resultFlag==1) {
+     reverseNonprimeNumber += " "+variableToHoldArray[i];
+  }
+
+}
+
+
+
+
+}
+
+function checkPrimeOrNot(data){
+  var count=0;
+  var value=parseInt(data);
+  for(i=2; i<data; i++)
+         {
+             if(value%i == 0)
+             {
+                 count++;
+                 break;
+             }
+         }
+         if(count == 0)
+         {
+             return 0;
+         }
+         else
+         {
+             return 1;
+         }
 
 }
