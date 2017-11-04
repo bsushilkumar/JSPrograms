@@ -13,11 +13,19 @@
     @Date   : 25.10.2017
 
 *********************************************************************************************/
+
 result_storing_variable="";
- palindromNumber="";
- reverseNonprimeNumber="";
- reversedPrimeNumber="";
+ anaNumber="";
+ nonAnagram="";
+ //reverseNonprimeNumber="";
+ //reversedPrimeNumber="";
  primeNumber="";
+ count=1;
+
+ /**
+  *    @This function will calculate 0-1000 prime numners.
+  *    @And call anagram() function to check weather number is anagram or not.
+  */
 function prime_number_calculation_function(){
 
 
@@ -46,10 +54,18 @@ function prime_number_calculation_function(){
 
 }
 document.write("Prime Factors of Given number are : " +result_storing_variable);
+/**
+ *  @calling anagramCheckingFunction() function.
+ */
 anagramCheckingFunction(result_storing_variable);
-      // document.getElementById("display_result").innerHTML="Prime Factors of Given number are : " +result_storing_variable;
+
 }
 
+
+
+/**
+ *   @ anagramCheckingFunction() fuction will check number is anagram or not. if yes then store it in variable.
+ */
 
 function anagramCheckingFunction(data){
  var anagranNumber;
@@ -58,15 +74,42 @@ function anagramCheckingFunction(data){
 
   for (var i = 0; i < primeNumbers.length; i++) {
 
-      palindrom(primeNumbers[i]);
+      anagram(primeNumbers[i]);
   }
 
-document.write("<br><br>"+"Anagram Numbers are --><br>"+palindromNumber);
-findingNumberPrimeAndAnagramBoth(palindromNumber);
+document.write("<br><br>Anagram and Non-Anagram in 2DArray<br><br>");
+
+  var temporaryVariable1=anaNumber.split(" ");
+  var temporaryVariable2=nonAnagram.split("");
+for(var i=0;i<2;i++){
+    if(i==0)
+    {
+      document.write("<br<br><br>Anagram numbers are -->");
+  }
+  if (i==1) {
+      document.write("<br><br><br>Non-Anagram numbers are -->");
+  }
+     for(var j=1;j<temporaryVariable1.length;j++)
+         {
+               if (j<temporaryVariable1.length && i==0) {
+
+                  document.write(temporaryVariable1[count]+" ");
+               }
+
+              if (j<temporaryVariable2.length && i==1) {
+                  document.write(temporaryVariable2[count]+" ");
+              }
+              count++;
+         }
+
+    count=1;
+ }
+
+
 }
 
 
-function palindrom(data){
+function anagram(data){
  var number=[];
 
    var localVarialble=data;
@@ -86,31 +129,31 @@ function palindrom(data){
      if(number.length==3)
      {
            if (number[0]==number[1]==number[3]) {
-
+                  nonAnagram +=" "+data;
            }else {
-                 palindromNumber +=" "+data;
+                 anaNumber +=" "+data;
            }
 
      }
      if(number.length==2)
      {
            if (number[0]==number[1]) {
-
+nonAnagram +=" "+data;
            }else {
-                 palindromNumber +=" "+data;
+                 anaNumber +=" "+data;
            }
 
      }
      if(number.length==1)
      {
-
+nonAnagram +=" "+data;
 
      }
 
 return;
 
 }
-
+/*
 function findingNumberPrimeAndAnagramBoth(array){
 
 var variableToHoldArray=array.split(" ");
@@ -164,3 +207,4 @@ function checkPrimeOrNot(data){
          }
 
 }
+*/

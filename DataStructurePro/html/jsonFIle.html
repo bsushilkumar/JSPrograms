@@ -1,0 +1,58 @@
+<!--*********************************************************************************************************************************
+
+Description : JSON Inventory Data Management of Rice, Pulses and Wheats
+              Desc -> Create a JSON file having Inventory Details for Rice, Pulses and Wheats with properties name, weight, price per kg.
+                      Use Library : Java JSON Library, For IOS JSON Library use NSJSONSerialization for parsing the JSON.
+              I/P -> read in JSON File
+              Logic -> Get JSON Object in Java or NSDictionary in iOS. Create Inventory Object from JSON. Calculate the value for every Inventory.
+              O/P -> Create the JSON from Inventory Object and output the JSON String
+
+
+
+@auther : Sushilkumar Bobade
+@Date   : 4.11.2017
+
+
+****************************************************************************************************************************** -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+
+/**
+ *   @Saving object in localStorage as a text. and then retrive it and again as a text and convert it back
+ *     into object.
+ */
+  var rice='{"Rice":[{"Name":"Basumati","Price":"62","Weigth":"1kg"},{"Name":"Tukada","Price":"59","Weigth":"1kg"}]}';
+  var pulses='{"Pulses":[{"Name":"PolishDal","Price":"80","weight":"1kg"},{"Name":"UnPolishDal","Price":"70","weight":"1kg"}]}';
+  var wheats='{"Wheats":[{"Name":"Pure","Price":"72","Weigth":"1kg"},{"Name":"vishawas","Price":"79","Weigth":"1kg"}]}';
+
+  localStorage.setItem("Rice1",rice);
+    localStorage.setItem("Pulses1",pulses);
+      localStorage.setItem("Wheats1",wheats);
+      console.log(localStorage.getItem("Wheats1"));
+         console.log(localStorage.getItem("Rice1"));
+             console.log(localStorage.getItem("Pulses1"));
+
+
+obj = JSON.parse(localStorage.getItem("Wheats1"));
+obj1 = JSON.parse(localStorage.getItem("Rice1"));
+obj2 = JSON.parse(localStorage.getItem("Pulses1"));
+
+document.write(" Rice Details--> "+obj1.Rice[0].Name + " " + obj1.Rice[0].Price+" "+obj1.Rice[0].Weigth+
+               "<br> Rice Details--> "+obj1.Rice[1].Name + " " + obj1.Rice[1].Price+" "+obj1.Rice[1].Weigth);
+
+document.write("<br><br> Pulses Details--> "+obj2.Pulses[0].Name + " " + obj2.Pulses[0].Price+" "+obj2.Pulses[0].Weigth+
+                "<br> Pulses Details--> "+obj2.Pulses[1].Name + " " + obj2.Pulses[1].Price+" "+obj2.Pulses[1].Weigth);
+
+document.write(" <br><br>Wheats Details--> "+obj.Wheats[0].Name + " " + obj.Wheats[0].Price+" "+obj.Wheats[0].Weigth+
+                "<br> Wheats Details--> "+obj.Wheats[1].Name + " " + obj.Wheats[1].Price+" "+obj.Wheats[1].Weigth);
+</script>
+
+</body>
+</html>
