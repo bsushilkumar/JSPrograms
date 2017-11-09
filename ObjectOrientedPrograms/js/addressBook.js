@@ -1,19 +1,38 @@
-count = 0;
+/*********************************************************************************************************
+
+    Description :Address Book.
+                 Desc -> User interface which helps to manage address book details adding,removing,editing
+                          and sorting
+                 I/P  -> read input details from users and performing the task as per user requirment.
+
+
+
+
+   @auther : Sushilkumar Bobade
+   @Date   : 9.11.2017
+
+*************************************************************************************************************/
+
+
+/**
+ *   @declearing global variables.
+ */
+recordCount = 0;
 objectArray = [];
 
 /**
- *  @addDetails() function provide text box to fill information and call addDetailsInRecord() function to insert details in database.
+ *  @addDetails() function provide text box to fill information and call addDetailsInRecord() function to insert details in records.
  */
 function addDetails() {
   document.getElementById("outTable").innerHTML = "Enter Name <input type='text' id='name'><br>Enter City <input type='text' id='city'><br>  Enter Zip <input type='text' id='zip'><br> Enter Mobile Number <input type='text' id='mobileNo'><br> <input type='button' value='Add Record' onclick='addDetailsInRecord()'>";
 }
 
 function deleteDetails() {
-  if(count>0)
+  if(recordCount>0)
   {
   document.getElementById("outTable").innerHTML = "Enter Name <input type='text' id='name'><br> <input type='button' value='Delete Record' onclick='deleteDetailsInRecord()'>";
 }
-if (count<1) {
+if (recordCount<1) {
 alert("Enter details in Record First");
 }
 
@@ -24,10 +43,10 @@ function editDetails(){
 
 
 
- if (count>0) {
+ if (recordCount>0) {
    document.getElementById("outTable").innerHTML="Enter Name <input type='text' id='name'><br> Enter Details to Edit <input type='text' id='edit'><br> <select id='fieldValue'> <option value='Name'>Name</option><option value='City'>City</option><option value='Zip'>Zip</option><option value='MobileNo'>Mobile Number</option></select><input type='button' value='Edit' onClick='editDetailsInRecord()'/>";
  }
-if (count<1) {
+if (recordCount<1) {
   alert("Insert Record First");
 }
 
@@ -39,20 +58,20 @@ if (count<1) {
  */
 function sortDtailsByName() {
 
-  if (count < 1) {
+  if (recordCount < 1) {
     alert("Enter Record First");
   }
-  if (count > 0 && count < 2) {
+  if (recordCount > 0 && recordCount < 2) {
     alert("One record not sorted");
   }
 
-  if (count > 1) {
+  if (recordCount > 1) {
     var result = "";
     var firstName, secondName;
     var temporaryVariable;
 
-    for (var i = 0; i < count - 1; i++) {
-      for (var j = 0; j < count - i - 1; j++) {
+    for (var i = 0; i < recordCount - 1; i++) {
+      for (var j = 0; j < recordCount - i - 1; j++) {
         firstName = objectArray[j].personName;
         secondName = objectArray[j + 1].personName
         var result_flag = firstName.localeCompare(secondName);
@@ -71,7 +90,7 @@ function sortDtailsByName() {
 
 
     document.getElementById("outTable").innerHTML = "";
-    for (var i = 0; i < count; i++) {
+    for (var i = 0; i < recordCount; i++) {
       result += objectArray[i].personName + " - " + objectArray[i].city + " - " + objectArray[i].zip + " - " + objectArray[i].mobileNo + "<br>";
     }
 
@@ -88,20 +107,20 @@ function sortDtailsByName() {
  */
 function sortDtailsByZip() {
 
-  if (count < 1) {
+  if (recordCount < 1) {
     alert("Enter Record First");
   }
-  if (count > 0 && count < 2) {
+  if (recordCount > 0 && recordCount < 2) {
     alert("One record not sorted");
   }
 
-  if (count > 1) {
+  if (recordCount > 1) {
     var result = "";
     var firstZip, secondZip;
     var temporaryVariable;
 
-    for (var i = 0; i < count - 1; i++) {
-      for (var j = 0; j < count - i - 1; j++) {
+    for (var i = 0; i < recordCount - 1; i++) {
+      for (var j = 0; j < recordCount - i - 1; j++) {
         firstZip = parseInt(objectArray[j].zip);
         secondZip = parseInt(objectArray[j + 1].zip);
         if (firstZip > secondZip) {
@@ -118,7 +137,7 @@ function sortDtailsByZip() {
 
 
     document.getElementById("outTable").innerHTML = "";
-    for (var i = 0; i < count; i++) {
+    for (var i = 0; i < recordCount; i++) {
       result += objectArray[i].personName + " - " + objectArray[i].city + " - " + objectArray[i].zip + " - " + objectArray[i].mobileNo + "<br>";
     }
 
@@ -152,11 +171,11 @@ function addDetailsInRecord() {
   var zip = document.getElementById("zip").value;
   var mobile = document.getElementById("mobileNo").value;
 
-  objectArray[count] = new details(name, city, zip, mobile);
-  count++;
+  objectArray[recordCount] = new details(name, city, zip, mobile);
+  recordCount++;
 
   document.getElementById("outTable").innerHTML = "";
-  for (var i = 0; i < count; i++) {
+  for (var i = 0; i < recordCount; i++) {
     result += objectArray[i].personName + " - " + objectArray[i].city + " - " + objectArray[i].zip + " - " + objectArray[i].mobileNo + "<br>";
   }
 
@@ -171,13 +190,13 @@ function deleteDetailsInRecord() {
   var result = "";
   var name = document.getElementById("name").value;
   document.getElementById("outTable").innerHTML = "";
-  for (var i = 0; i < count; i++) {
+  for (var i = 0; i < recordCount; i++) {
     if (objectArray[i].personName === name) {
       objectArray.splice(i, 1);
-      count--;
+      recordCount--;
       alert("Record deleted");
       document.getElementById("outTable").innerHTML = "";
-      for (var i = 0; i < count; i++) {
+      for (var i = 0; i < recordCount; i++) {
         result += objectArray[i].personName + " - " + objectArray[i].city + " - " + objectArray[i].zip + " - " + objectArray[i].mobileNo + "<br>";
       }
 
@@ -205,7 +224,7 @@ function editDetailsInRecord(){
 
 
 
-     for (var i = 0; i < count; i++) {
+     for (var i = 0; i < recordCount; i++) {
        if(objectArray[i].personName === name)
        {
          if (selectedValue == "Name") {
@@ -225,7 +244,7 @@ function editDetailsInRecord(){
 
         alert("Record Edited Successfully");
         document.getElementById("outTable").innerHTML = "";
-        for (var i = 0; i < count; i++) {
+        for (var i = 0; i < recordCount; i++) {
           result += objectArray[i].personName + " - " + objectArray[i].city + " - " + objectArray[i].zip + " - " + objectArray[i].mobileNo + "<br>";
         }
 

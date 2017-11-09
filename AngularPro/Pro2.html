@@ -6,54 +6,51 @@
 
 
 
-      @auther : Sushilkumar Bobade	
-      @Date   : 17.10.2017        
+      @auther : Sushilkumar Bobade
+      @Date   : 17.10.2017
 
 *************************************************************************-->
 
 <html>
-<head><h4>Flip coin </h4>
-<script type="text/javascript"> 
- function call(){
- var tails=0,heads=0;
 
- var flip_time_for_coin=document.getElementById("name").value;  
+<head>
+  <h4>Flip coin </h4>
+  <script type="text/javascript">
+    function call() {
+      var tails = 0,
+        heads = 0;
 
-  
-  
-/**
- *  @Function to toss coin as per input 
- */
-for(var i=0;i<flip_time_for_coin;i++)
-{
-   
-/**
- *  @function to generate randome number between 0 to 1;
- */ if(Math.random()<0.5)  
-   { 
-      tails++;
-   }
-else{
-      heads++;
-   }
-  
+      var flip_time_for_coin = document.getElementById("name").value;
 
-}
+      /**
+       *  @Function to toss coin as per input
+       */
+      for (var i = 0; i < flip_time_for_coin; i++) {
 
-/**
- *  formula to calculate pacentage(?/100=part/whole)
- */
- alert("number of times to flip Tails is % = "+(tails*100)/flip_time_for_coin+"("+ tails +" times out of "+flip_time_for_coin+")");  
- 
-}
-</script>
+        /**
+         *  @function to generate randome number between 0 to 1;
+         */
+        if (Math.random() < 0.5) {
+          tails++;
+        } else {
+          heads++;
+        }
+      }
+
+      /**
+       *  formula to calculate pacentage(?/100=part/whole)
+       */
+      alert("number of times to flip Tails is % = " + (tails * 100) / flip_time_for_coin + "(" + tails + " times out of " + flip_time_for_coin + ")");
+
+    }
+  </script>
 </head>
+
 <body>
-<form name="pro2">
-Enter number of times to Flip Coin <input type="text" id="name"><br>
-<input type="button" value="Submit" onclick="call()"/>
-</form>
+  <form name="pro2">
+    Enter number of times to Flip Coin <input type="text" id="name"><br>
+    <input type="button" value="Submit" onclick="call()" />
+  </form>
 </body>
 
 </html>
-

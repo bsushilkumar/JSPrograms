@@ -1,79 +1,63 @@
 <!--**********************************************************************
 
-      Description : Leap Year program. 
+      Description : Leap Year program.
                     Take 4 digit number as an input and check weather it
                     is leap year or not.
 
 
 
-      @auther : Sushilkumar Bobade	
-      @Date   : 17.10.2017        
+      @auther : Sushilkumar Bobade
+      @Date   : 17.10.2017
 
 *************************************************************************-->
 
 <html>
+
 <head>
-<script type="text/javascript">
+  <script type="text/javascript">
+    /**
+     *   @Function to find leap year.
+     */
+    function find_leap_Year() {
+
+      var year_as_input = document.getElementById('txt').value;
+
+      if (year_as_input.length > 3 && year_as_input.length < 5 && year_as_input != "") {
 
 
-/**
- *   @Function to find leap year.
- */
-function find_leap_Year(){
-
-      var year_as_input=document.getElementById('txt').value;
-      
-       if(year_as_input.length >3 && year_as_input.length<5 &&  num!="")
-      {
-       
-
-        if(year_as_input % 4 == 0)
-        {
-            if( year_as_input % 100 == 0)
-            {
- /**
- *   @Year is divisible by 400, hence the year is a leap year.
- */ 
-                if ( year_as_input % 400 == 0)
-                   alert("Entered 4 digit number is leap year");
-                else
-                    alert("Entered 4 digit number is not leap year");
-            }
+        if (year_as_input % 4 == 0) {
+          if (year_as_input % 100 == 0) {
+            /**
+             *   @Year is divisible by 400, hence the year is a leap year.
+             */
+            if (year_as_input % 400 == 0)
+              alert("Entered 4 digit number is leap year");
             else
-               alert("Entered 4 digit number is leap year");
-        }
-        else
-            alert("Entered 4 digit number is not leap year");
+              alert("Entered 4 digit number is not leap year");
+          } else
+            alert("Entered 4 digit number is leap year");
+        } else
+          alert("Entered 4 digit number is not leap year");
 
-
-
-
-
-}else{
-   if(year_as_input=="" || year_as_input.length>4 || year_as_input.length <4 )
-      {    if(year_as_input=="")
-            { 
+      } else {
+        if (year_as_input == "" || year_as_input.length > 4 || year_as_input.length < 4) {
+          if (year_as_input == "") {
             alert("Enter Year");
-            }
-         else{ alert("Enter 4 digit number");}
-     
-     }
+          } else {
+            alert("Enter 4 digit number");
+          }
+        }
+      }
     }
-  
-
-
-
-}
-
- </script>
+  </script>
 </head>
 
 <body>
 
-Enter Year to find leap year <input type="number" id="txt" name="name"><br>
+  Enter Year to find leap year <input type="number" id="txt" name="name"><br>
 
-<input type="button" value="Click" onclick="findYear()">
+  <input type="button" value="Click" onclick="find_leap_Year()">
 
 </body>
-</html>
 
+</html>
